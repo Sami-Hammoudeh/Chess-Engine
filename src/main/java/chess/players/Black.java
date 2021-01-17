@@ -1,46 +1,47 @@
 package chess.players;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 import chess.board.Position;
-import chess.pieces.Bishop;
-import chess.pieces.King;
-import chess.pieces.Knight;
-import chess.pieces.Pawn;
-import chess.pieces.Piece;
-import chess.pieces.Queen;
-import chess.pieces.Rook;
+import chess.exception.ChessException;
+import chess.pieces.*;
 
 public class Black {
-	private HashMap<Piece, Boolean> pieces;
+	private HashSet<Piece> pieces;
 
 	public Black() {
-		pieces = new HashMap<Piece, Boolean>();
+		pieces = new HashSet<Piece>();
 		fillPieces();
+	}
+
+	public void killPiece(Piece piece) throws ChessException {
+		if (!pieces.remove(piece)) {
+			throw new ChessException(ChessException.PieceNotFound);
+		}
 	}
 
 	private void fillPieces() {
 		// Pawns
-		pieces.put(new Pawn(Position.A7), true);
-		pieces.put(new Pawn(Position.B7), true);
-		pieces.put(new Pawn(Position.C7), true);
-		pieces.put(new Pawn(Position.D7), true);
-		pieces.put(new Pawn(Position.E7), true);
-		pieces.put(new Pawn(Position.F7), true);
-		pieces.put(new Pawn(Position.G7), true);
-		pieces.put(new Pawn(Position.H7), true);
+		pieces.add(new Pawn(Position.A7));
+		pieces.add(new Pawn(Position.B7));
+		pieces.add(new Pawn(Position.C7));
+		pieces.add(new Pawn(Position.D7));
+		pieces.add(new Pawn(Position.E7));
+		pieces.add(new Pawn(Position.F7));
+		pieces.add(new Pawn(Position.G7));
+		pieces.add(new Pawn(Position.H7));
 		// Rooks
-		pieces.put(new Rook(Position.A8), true);
-		pieces.put(new Rook(Position.H8), true);
+		pieces.add(new Rook(Position.A8));
+		pieces.add(new Rook(Position.H8));
 		// Knights
-		pieces.put(new Knight(Position.B8), true);
-		pieces.put(new Knight(Position.G8), true);
+		pieces.add(new Knight(Position.B8));
+		pieces.add(new Knight(Position.G8));
 		// Bishops
-		pieces.put(new Bishop(Position.C8), true);
-		pieces.put(new Bishop(Position.F8), true);
+		pieces.add(new Bishop(Position.C8));
+		pieces.add(new Bishop(Position.F8));
 		// Queen
-		pieces.put(new Queen(Position.D8), true);
+		pieces.add(new Queen(Position.D8));
 		// King
-		pieces.put(new King(Position.E8), true);
+		pieces.add(new King(Position.E8));
 	}
 }
