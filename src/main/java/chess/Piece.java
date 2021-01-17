@@ -6,6 +6,23 @@ public abstract class Piece {
 	private static boolean black;
 	private Position position;
 
+	public boolean moveTo(Position position) throws ChessException {
+		if (Board.checkPosition(position) == null) {
+			Board.movePiece(this, position);
+			setPosition(position);
+			return true;
+		}
+		return false;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
 	public static int getWeight() {
 		return weight;
 	}
