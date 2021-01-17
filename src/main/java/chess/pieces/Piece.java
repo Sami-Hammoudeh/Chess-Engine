@@ -1,4 +1,8 @@
-package chess;
+package chess.pieces;
+
+import chess.board.Board;
+import chess.board.Position;
+import chess.exception.ChessException;
 
 public abstract class Piece {
 	private static int weight;
@@ -6,9 +10,13 @@ public abstract class Piece {
 	private static boolean black;
 	private Position position;
 
-	public boolean moveTo(Position position) throws ChessException {
+	public boolean moveTo(Position position) {
 		if (Board.checkPosition(position) == null) {
-			Board.movePiece(this, position);
+			try {
+				Board.movePiece(this, position);
+			} catch (ChessException e) {
+				return false;
+			}
 			setPosition(position);
 			return true;
 		}

@@ -1,7 +1,9 @@
-package chess;
+package chess.board;
 
-import java.io.IOException;
 import java.util.HashMap;
+
+import chess.exception.ChessException;
+import chess.pieces.Piece;
 
 public class Board {
 	private static HashMap<Position, Piece> positions;
@@ -11,8 +13,8 @@ public class Board {
 	}
 
 	public static void movePiece(Piece piece, Position position) throws ChessException {
-		if (positions.get(position) == null || piece.getPosition() == position) {
-			throw new ChessException(Error.IllegalMove.getErrorMessage());
+		if (piece.getPosition() == position) {
+			throw new ChessException(ChessException.IllegalMove);
 		}
 		positions.put(piece.getPosition(), null);
 		positions.put(position, piece);
