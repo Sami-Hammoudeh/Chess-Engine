@@ -4,11 +4,15 @@ import chess.board.Board;
 import chess.board.Position;
 import chess.exception.ChessException;
 
-public abstract class Piece {
+public class Piece {
 	private static int weight;
 	private static boolean white;
 	private static boolean black;
 	private Position position;
+
+	public Piece(Position position) {
+		setPosition(position);
+	}
 
 	public boolean moveTo(Position position) {
 		if (Board.checkPosition(position) == null) {
