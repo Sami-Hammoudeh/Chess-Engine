@@ -14,7 +14,12 @@ public class Queen extends Piece {
 
 	@Override
 	public LinkedList<Position> getLegalMoves() {
-		return null;
+		legalMoves = new LinkedList<Position>();
+		Piece tempRook = new Rook(getPosition(), getColor());
+		Piece tempBishop = new Bishop(getPosition(), getColor());
+		legalMoves.addAll(tempRook.getLegalMoves());
+		legalMoves.addAll(tempBishop.getLegalMoves());
+		return legalMoves;
 	}
 
 }
