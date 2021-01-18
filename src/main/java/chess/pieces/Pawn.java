@@ -41,7 +41,7 @@ public class Pawn extends Piece {
 	}
 
 	private void addKill(Position position) {
-		if (Board.canReach(position, getColor())) {
+		if (Board.isKill(position, getColor())) {
 			addLegalMove(position);
 		}
 	}

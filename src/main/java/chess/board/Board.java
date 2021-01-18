@@ -37,10 +37,10 @@ public abstract class Board {
 		return getPosition(position) == null;
 	}
 
-	public static boolean canReach(Position position, Color color) {
-		if (!(position.isValid()))
+	public static boolean isKill(Position position, Color color) {
+		if (!(position.isValid()) || getPosition(position) == null)
 			return false;
-		return getPosition(position) == null || getPosition(position).getColor() != color;
+		return getPosition(position).getColor() != color;
 	}
 
 	public static void setPosition(Position position, Piece piece) {
