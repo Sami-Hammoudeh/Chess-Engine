@@ -43,6 +43,14 @@ public abstract class Board {
 		return getPosition(position).getColor() != color;
 	}
 
+	public static boolean isAlly(Position position, Color color) {
+		try {
+			return getPosition(position).getColor() == color;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 	public static void setPosition(Position position, Piece piece) {
 		positions[position.getColumn() - 1][position.getRow() - 1] = piece;
 	}
