@@ -31,4 +31,9 @@ public class Black extends Player {
 		// King
 		addPiece(new King(new Position('E', 8), Color.BLACK));
 	}
+
+	@Override
+	public boolean isInCheck() {
+		return false;
+	}
 }

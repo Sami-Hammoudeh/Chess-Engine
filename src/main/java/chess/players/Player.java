@@ -7,31 +7,40 @@ import chess.exception.ChessException;
 import chess.pieces.Piece;
 
 public abstract class Player {
-	private HashSet<Piece> pieces;
+	private static HashSet<Piece> pieces;
+	private static boolean inCheck;
 
-	public Player(){
+	public Player() {
 		pieces = new HashSet<Piece>();
 		fillPieces();
+		setInCheck(false);
 	}
 
-	public void killPiece(Piece piece) throws ChessException {
+	public static void killPiece(Piece piece) throws ChessException {
 		if (!pieces.remove(piece)) {
 			throw new ChessException(ChessException.PieceNotFound);
 		}
 	}
 
-	public void addPiece(Piece piece) {
+	public static void addPiece(Piece piece) {
 		pieces.add(piece);
 		Board.setPosition(piece.getPosition(), piece);
 	}
 
-	public HashSet<Piece> getPieces() {
+	public static HashSet<Piece> getPieces() {
 		return pieces;
 	}
 
 	public void setPieces(HashSet<Piece> pieces) {
 		this.pieces = pieces;
 	}
+
+
+	public static void setInCheck(boolean inCheck) {
+		Player.inCheck = inCheck;
+	}
+
+	public abstract boolean isInCheck();
 
 	public abstract void fillPieces();
 }
