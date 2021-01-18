@@ -14,7 +14,14 @@ public class Pawn extends Piece {
 	@Override
 	public LinkedList<Position> getLegalMoves() {
 		LinkedList<Position> legalMoves = new LinkedList<Position>();
-		
+		// White Piece
+		if (getColor() == Color.WHITE) {
+			if (getPosition().getRow() == 2) {
+				
+			}
+		} else { // Black Piece
+
+		}
 		return null;
 	}
 
