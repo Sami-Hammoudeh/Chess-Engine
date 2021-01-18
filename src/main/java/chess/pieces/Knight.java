@@ -21,7 +21,7 @@ public class Knight extends Piece {
 		// Rows
 		int[] r = { -2, -1, 1, 2, 2, 1, -1, -2 };
 		for (int i = 0; i < c.length; i++) {
-			if (Board.isEmpty(getPosition()) || Board.isKill(getPosition(), getColor())) {
+			if (Board.isEmpty(getPosition()) || Board.isEnemy(getPosition(), getColor())) {
 				addLegalMove(getPosition().addRows(r[i]).addColums(c[i]));
 			}
 		}

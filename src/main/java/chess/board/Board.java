@@ -32,15 +32,23 @@ public abstract class Board {
 	}
 
 	public static boolean isEmpty(Position position) {
-		if (!(position.isValid()))
+		try {
+			return getPosition(position) == null;
+		} catch (Exception e) {
 			return false;
-		return getPosition(position) == null;
+		}
 	}
 
-	public static boolean isKill(Position position, Color color) {
-		if (!(position.isValid()) || getPosition(position) == null)
-			return false;
-		return getPosition(position).getColor() != color;
+	public static boolean isNotEmpty(Position position) {
+		try {
+			return isEnemy(position, turn) || isAlly(position, turn);
+		} catch (Exception e) {
+			return true;
+		}
+	}
+
+	public static boolean isEnemy(Position position, Color color) {
+		return !isAlly(position, color);
 	}
 
 	public static boolean isAlly(Position position, Color color) {

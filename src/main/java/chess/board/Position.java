@@ -4,7 +4,6 @@ public class Position {
 
 	private int column;
 	private int row;
-	private boolean valid;
 
 	public Position(int column, int row) {
 		setColumn(column);
@@ -67,8 +66,6 @@ public class Position {
 	}
 
 	public void setColumn(int column) {
-		if (column < 1 || column > 8)
-			setValid(false);
 		this.column = column;
 	}
 
@@ -77,21 +74,11 @@ public class Position {
 	}
 
 	public void setRow(int row) {
-		if (row < 1 || row > 8)
-			setValid(false);
 		this.row = row;
 	}
 
 	public boolean equals(Position position) {
 		return column == position.getColumn() && row == position.getRow();
-	}
-
-	public boolean isValid() {
-		return valid;
-	}
-
-	public void setValid(boolean valid) {
-		this.valid = valid;
 	}
 
 	public Position addRows(int rows) {
