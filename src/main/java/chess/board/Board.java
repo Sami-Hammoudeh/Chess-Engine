@@ -1,6 +1,6 @@
 package chess.board;
 
-import chess.error.Erros;
+import chess.error.Error;
 import chess.pieces.Piece;
 import chess.players.Color;
 
@@ -22,9 +22,9 @@ public class Board {
 
 	public void movePiece(Piece piece, Position position) throws Exception {
 		if (turn != piece.getColor())
-			throw new Exception(Erros.ILlegalTurn);
+			throw new Exception(Error.ILlegalTurn);
 		if (piece.getPosition().equals(position)) {
-			throw new Exception(Erros.IllegalMove);
+			throw new Exception(Error.IllegalMove);
 		}
 		setPosition(piece.getPosition(), null);
 		setPosition(position, piece);

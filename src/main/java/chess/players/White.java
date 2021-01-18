@@ -1,7 +1,7 @@
 package chess.players;
 
 import chess.board.Position;
-import chess.error.Erros;
+import chess.error.Error;
 import chess.pieces.*;
 
 public class White extends Player {

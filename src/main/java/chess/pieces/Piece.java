@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import chess.board.Board;
 import chess.board.Position;
 import chess.control.Main;
-import chess.error.Erros;
+import chess.error.Error;
 import chess.players.Color;
 
 public abstract class Piece {

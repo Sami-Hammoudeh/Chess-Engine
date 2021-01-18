@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 import chess.board.Board;
 import chess.control.Main;
-import chess.error.Erros;
+import chess.error.Error;
 import chess.pieces.Piece;
 
 public abstract class Player {
@@ -19,7 +19,7 @@ public abstract class Player {
 
 	public static void killPiece(Piece piece) throws Exception {
 		if (!pieces.remove(piece)) {
-			throw new Exception(Erros.PieceNotFound);
+			throw new Exception(Error.PieceNotFound);
 		}
 	}
 
