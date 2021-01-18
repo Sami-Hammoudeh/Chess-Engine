@@ -23,6 +23,10 @@ public abstract class Board {
 		return positions[position.getColumn() - 1][position.getRow() - 1];
 	}
 
+	public boolean isEmpty(Position position) {
+		return getPosition(position) == null;
+	}
+
 	public static void setPosition(Position position, Piece piece) {
 		positions[position.getColumn() - 1][position.getRow() - 1] = piece;
 	}
