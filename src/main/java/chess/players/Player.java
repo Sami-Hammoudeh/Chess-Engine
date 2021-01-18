@@ -6,25 +6,25 @@ import chess.exception.ChessException;
 import chess.pieces.Piece;
 
 public abstract class Player {
-	private static HashSet<Piece> pieces;
+	private HashSet<Piece> pieces;
 
 	public Player() {
 		pieces = new HashSet<Piece>();
 		fillPieces();
 	}
 
-	public static void killPiece(Piece piece) throws ChessException {
+	public void killPiece(Piece piece) throws ChessException {
 		if (!pieces.remove(piece)) {
 			throw new ChessException(ChessException.PieceNotFound);
 		}
 	}
 
-	public static HashSet<Piece> getPieces() {
+	public HashSet<Piece> getPieces() {
 		return pieces;
 	}
 
-	public static void setPieces(HashSet<Piece> pieces) {
-		Player.pieces = pieces;
+	public void setPieces(HashSet<Piece> pieces) {
+		this.pieces = pieces;
 	}
 
 	public abstract void fillPieces();
