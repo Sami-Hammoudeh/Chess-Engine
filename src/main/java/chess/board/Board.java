@@ -24,6 +24,8 @@ public abstract class Board {
 	}
 
 	public static boolean isEmpty(Position position) {
+		if (!(position.isValid()))
+			return false;
 		return getPosition(position) == null;
 	}
 
