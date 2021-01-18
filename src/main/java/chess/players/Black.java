@@ -1,9 +1,6 @@
 package chess.players;
 
-import java.util.HashSet;
-
 import chess.board.Position;
-import chess.exception.ChessException;
 import chess.pieces.*;
 
 public class Black extends Player {
