@@ -1,6 +1,5 @@
 package chess.board;
 
-import chess.exception.ChessException;
 import chess.pieces.Piece;
 
 public class Position {
@@ -9,18 +8,18 @@ public class Position {
 	private int row;
 	private Piece piece;
 
-	public Position(int column, int row) throws ChessException {
+	public Position(int column, int row) {
 		setColumn(column);
 		setRow(row);
 	}
 
-	public Position(char column, int row) throws ChessException {
+	public Position(char column, int row) {
 		column = charToInt(column);
 		setColumn(column);
 		setRow(row);
 	}
 
-	private char charToInt(char column) throws ChessException {
+	private char charToInt(char column) {
 		column = Character.toUpperCase(column);
 		switch (column) {
 		case 'A':
@@ -37,10 +36,8 @@ public class Position {
 			return 6;
 		case 'G':
 			return 7;
-		case 'H':
-			return 8;
 		default:
-			throw new ChessException(ChessException.IllegalPosition);
+			return 8;
 		}
 	}
 
@@ -69,9 +66,7 @@ public class Position {
 		}
 	}
 
-	public void setColumn(int column) throws ChessException {
-		if (column < 1 || column > 8)
-			throw new ChessException(ChessException.IllegalPosition);
+	public void setColumn(int column) {
 		this.column = column;
 	}
 
@@ -87,9 +82,7 @@ public class Position {
 		this.piece = piece;
 	}
 
-	public void setRow(int row) throws ChessException {
-		if (row < 1 || row > 8)
-			throw new ChessException(ChessException.IllegalPosition);
+	public void setRow(int row) {
 		this.row = row;
 	}
 
