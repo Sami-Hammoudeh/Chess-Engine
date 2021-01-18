@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import chess.board.Board;
 import chess.board.Position;
 import chess.control.Main;
-import chess.exception.ChessException;
+import chess.error.Erros;
 import chess.players.Color;
 
 public abstract class Piece {
@@ -26,7 +26,7 @@ public abstract class Piece {
 		if (Main.mainBoard.getPosition(position) == null) {
 			try {
 				Main.mainBoard.movePiece(this, position);
-			} catch (ChessException e) {
+			} catch (Exception e) {
 				return false;
 			}
 			setPosition(position);

@@ -1,6 +1,6 @@
 package chess.board;
 
-import chess.exception.ChessException;
+import chess.error.Erros;
 import chess.pieces.Piece;
 import chess.players.Color;
 
@@ -20,11 +20,11 @@ public class Board {
 		this.turn = turn;
 	}
 
-	public void movePiece(Piece piece, Position position) throws ChessException {
+	public void movePiece(Piece piece, Position position) throws Exception {
 		if (turn != piece.getColor())
-			throw new ChessException(ChessException.ILlegalTurn);
+			throw new Exception(Erros.ILlegalTurn);
 		if (piece.getPosition().equals(position)) {
-			throw new ChessException(ChessException.IllegalMove);
+			throw new Exception(Erros.IllegalMove);
 		}
 		setPosition(piece.getPosition(), null);
 		setPosition(position, piece);
