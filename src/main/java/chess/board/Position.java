@@ -1,26 +1,86 @@
 package chess.board;
 
-public enum Position {
-	A1(1, 1), A2(2, 1), A3(3, 1), A4(4, 1), A5(5, 1), A6(6, 1), A7(7, 1), A8(8, 1), B1(1, 2), B2(2, 2), B3(3, 2),
-	B4(4, 2), B5(5, 2), B6(6, 2), B7(7, 2), B8(8, 2), C1(1, 3), C2(2, 3), C3(3, 3), C4(4, 3), C5(5, 3), C6(6, 3),
-	C7(7, 3), C8(8, 3), D1(1, 4), D2(2, 4), D3(3, 4), D4(4, 4), D5(5, 4), D6(6, 4), D7(7, 4), D8(8, 4), E1(1, 5),
-	E2(2, 5), E3(3, 5), E4(4, 5), E5(5, 5), E6(6, 5), E7(7, 5), E8(8, 5), F1(1, 6), F2(2, 6), F3(3, 6), F4(4, 6),
-	F5(5, 6), F6(6, 6), F7(7, 6), F8(8, 6), G1(1, 7), G2(2, 7), G3(3, 7), G4(4, 7), G5(5, 7), G6(6, 7), G7(7, 7),
-	G8(8, 7), H1(1, 8), H2(2, 8), H3(3, 8), H4(4, 8), H5(5, 8), H6(6, 8), H7(7, 8), H8(8, 8);
+import chess.exception.ChessException;
 
-	private int row;
+public class Position {
+
 	private int column;
+	private int row;
 
-	private Position(int row, int column) {
-		this.row = row;
+	public Position(int column, int row) throws ChessException {
+		setColumn(column);
+		setRow(row);
+	}
+
+	public Position(char column, int row) throws ChessException {
+		column = charToInt(column);
+		setColumn(column);
+		setRow(row);
+	}
+
+	private char charToInt(char column) throws ChessException {
+		column = Character.toUpperCase(column);
+		switch (column) {
+		case 'A':
+			return 1;
+		case 'B':
+			return 2;
+		case 'C':
+			return 3;
+		case 'D':
+			return 4;
+		case 'E':
+			return 5;
+		case 'F':
+			return 6;
+		case 'G':
+			return 7;
+		case 'H':
+			return 8;
+		default:
+			throw new ChessException(ChessException.IllegalPosition);
+		}
+	}
+
+	public int getColumn() {
+		return column;
+	}
+
+	public char getColumnAsChar() {
+		switch (column) {
+		case 1:
+			return 'A';
+		case 2:
+			return 'B';
+		case 3:
+			return 'C';
+		case 4:
+			return 'D';
+		case 5:
+			return 'E';
+		case 6:
+			return 'F';
+		case 7:
+			return 'G';
+		default:
+			return 'H';
+		}
+	}
+
+	public void setColumn(int column) throws ChessException {
+		if (column < 1 || column > 8)
+			throw new ChessException(ChessException.IllegalPosition);
 		this.column = column;
 	}
 
 	public int getRow() {
-		return this.row;
+		return row;
 	}
 
-	public int getColumn() {
-		return this.column;
+	public void setRow(int row) throws ChessException {
+		if (row < 1 || row > 8)
+			throw new ChessException(ChessException.IllegalPosition);
+		this.row = row;
 	}
+
 }
