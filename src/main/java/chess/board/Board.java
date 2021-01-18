@@ -6,11 +6,8 @@ import chess.players.Color;
 
 public abstract class Board {
 
-	private static Piece[][] positions;
-
-	public Board() {
-		positions = new Piece[8][8];
-	}
+	private static Piece[][] positions = new Piece[8][8];
+	public static Color turn = Color.WHITE;
 
 	public static void movePiece(Piece piece, Position position) throws ChessException {
 		if (piece.getPosition().equals(position)) {
@@ -18,6 +15,14 @@ public abstract class Board {
 		}
 		setPosition(piece.getPosition(), null);
 		setPosition(position, piece);
+		flipTurn();
+	}
+
+	private static void flipTurn() {
+		if (turn == Color.WHITE)
+			turn = Color.BLACK;
+		else
+			turn = Color.WHITE;
 	}
 
 	public static Piece getPosition(Position position) {
