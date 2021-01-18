@@ -48,7 +48,11 @@ public abstract class Board {
 	}
 
 	public static boolean isEnemy(Position position, Color color) {
-		return !isAlly(position, color);
+		try {
+			return getPosition(position).getColor() != color;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	public static boolean isAlly(Position position, Color color) {
