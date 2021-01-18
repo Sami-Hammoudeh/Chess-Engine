@@ -94,4 +94,12 @@ public class Position {
 		this.valid = valid;
 	}
 
+	public Position addRows(int rows) {
+		return new Position(column, rows + row);
+	}
+
+	public Position addColums(int colums) {
+		return new Position(colums + column, row);
+	}
+
 }

@@ -38,7 +38,9 @@ public abstract class Board {
 	}
 
 	public static boolean canReach(Position position, Color color) {
-		return isEmpty(position) || getPosition(position).getColor() != color;
+		if (!(position.isValid()))
+			return false;
+		return getPosition(position) == null || getPosition(position).getColor() != color;
 	}
 
 	public static void setPosition(Position position, Piece piece) {

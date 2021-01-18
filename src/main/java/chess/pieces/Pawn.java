@@ -13,25 +13,36 @@ public class Pawn extends Piece {
 		setWeight(1);
 	}
 
-	@Override
 	public LinkedList<Position> getLegalMoves() {
-		LinkedList<Position> legalMoves = new LinkedList<Position>();
+		legalMoves = new LinkedList<Position>();
 		// White Piece
 		if (getColor() == Color.WHITE) {
 			if (getPosition().getRow() == 2) {
-				addToLegalMoves(legalMoves, getPosition().getColumn(), getPosition().getRow() + 1);
-				addToLegalMoves(legalMoves, getPosition().getColumn(), getPosition().getRow() + 2);
+				addMove(getPosition().addRows(2));
 			}
+			addMove(getPosition().addRows(1));
+			addKill(getPosition().addRows(1).addColums(1));
+			addKill(getPosition().addRows(1).addColums(-1));
 		} else { // Black Piece
-
+			if (getPosition().getRow() == 7) {
+				addMove(getPosition().addRows(-2));
+			}
+			addMove(getPosition().addRows(-1));
+			addKill(getPosition().addRows(-1).addColums(1));
+			addKill(getPosition().addRows(-1).addColums(-1));
 		}
-		return null;
+		return legalMoves;
 	}
 
-	private void addToLegalMoves(LinkedList<Position> legalMoves, int column, int row) {
-		Position position = new Position(column, row);
+	private void addMove(Position position) {
 		if (Board.isEmpty(position)) {
-			legalMoves.add(position);
+			addLegalMove(position);
+		}
+	}
+
+	private void addKill(Position position) {
+		if (Board.canReach(position, getColor())) {
+			addLegalMove(position);
 		}
 	}
 

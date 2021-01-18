@@ -13,13 +13,13 @@ public abstract class Piece {
 	private boolean black;
 	private Position position;
 	private Color color;
+	LinkedList<Position> legalMoves;
 
 	public Piece(Position position, Color color) {
 		setPosition(position);
 		setColor(color);
+		legalMoves = new LinkedList<Position>();
 	}
-
-	public abstract LinkedList<Position> getLegalMoves();
 
 	public boolean moveTo(Position position) {
 		if (Board.getPosition(position) == null) {
@@ -75,5 +75,11 @@ public abstract class Piece {
 		this.black = black;
 		this.white = !black;
 	}
+
+	public void addLegalMove(Position position) {
+		legalMoves.add(position);
+	}
+
+	public abstract LinkedList<Position> getLegalMoves();
 
 }
