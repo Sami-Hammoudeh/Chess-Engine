@@ -2,6 +2,7 @@ package chess.board;
 
 import chess.exception.ChessException;
 import chess.pieces.Piece;
+import chess.players.Color;
 
 public abstract class Board {
 
@@ -27,6 +28,10 @@ public abstract class Board {
 		if (!(position.isValid()))
 			return false;
 		return getPosition(position) == null;
+	}
+
+	public static boolean canReach(Position position, Color color) {
+		return isEmpty(position) || getPosition(position).getColor() != color;
 	}
 
 	public static void setPosition(Position position, Piece piece) {
