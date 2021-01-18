@@ -3,6 +3,7 @@ package chess.players;
 import java.util.HashSet;
 
 import chess.board.Board;
+import chess.control.Main;
 import chess.exception.ChessException;
 import chess.pieces.Piece;
 
@@ -24,7 +25,7 @@ public abstract class Player {
 
 	public static void addPiece(Piece piece) {
 		pieces.add(piece);
-		Board.setPosition(piece.getPosition(), piece);
+		Main.mainBoard.setPosition(piece.getPosition(), piece);
 	}
 
 	public static HashSet<Piece> getPieces() {
@@ -34,7 +35,6 @@ public abstract class Player {
 	public void setPieces(HashSet<Piece> pieces) {
 		this.pieces = pieces;
 	}
-
 
 	public static void setInCheck(boolean inCheck) {
 		Player.inCheck = inCheck;

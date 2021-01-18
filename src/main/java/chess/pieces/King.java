@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Board;
 import chess.board.Position;
+import chess.control.Main;
 import chess.players.Color;
 
 public class King extends Piece {
@@ -21,7 +22,7 @@ public class King extends Piece {
 		int r[] = { -1, -1, 0, 1, 1, 1, 0, -1 };
 		for (int i = 0; i < c.length; i++) {
 			Position position = getPosition().addRows(r[i]).addColums(c[i]);
-			if (Board.isEmpty(position) || Board.isEnemy(position, getColor())) {
+			if (Main.mainBoard.isEmpty(position) || Main.mainBoard.isEnemy(position, getColor())) {
 				checkAndAddLegalMove(position);
 			}
 		}

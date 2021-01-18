@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Board;
 import chess.board.Position;
+import chess.control.Main;
 import chess.exception.ChessException;
 import chess.players.Color;
 
@@ -22,9 +23,9 @@ public abstract class Piece {
 	}
 
 	public boolean moveTo(Position position) {
-		if (Board.getPosition(position) == null) {
+		if (Main.mainBoard.getPosition(position) == null) {
 			try {
-				Board.movePiece(this, position);
+				Main.mainBoard.movePiece(this, position);
 			} catch (ChessException e) {
 				return false;
 			}

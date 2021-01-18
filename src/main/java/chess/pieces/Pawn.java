@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Board;
 import chess.board.Position;
+import chess.control.Main;
 import chess.players.Color;
 
 public class Pawn extends Piece {
@@ -35,13 +36,13 @@ public class Pawn extends Piece {
 	}
 
 	private void addMove(Position position) {
-		if (Board.isEmpty(position)) {
+		if (Main.mainBoard.isEmpty(position)) {
 			checkAndAddLegalMove(position);
 		}
 	}
 
 	private void addKill(Position position) {
-		if (Board.isEnemy(position, getColor())) {
+		if (Main.mainBoard.isEnemy(position, getColor())) {
 			checkAndAddLegalMove(position);
 		}
 	}

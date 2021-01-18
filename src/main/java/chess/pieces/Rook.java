@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Board;
 import chess.board.Position;
+import chess.control.Main;
 import chess.players.Color;
 
 public class Rook extends Piece {
@@ -20,10 +21,10 @@ public class Rook extends Piece {
 		// Rows
 		for (int i = 1; i < 8; i++) {
 			position = getPosition().addRows(i);
-			if (Board.isEmpty(position)) {
+			if (Main.mainBoard.isEmpty(position)) {
 				checkAndAddLegalMove(position);
 			} else {
-				if (Board.isEnemy(position, getColor())) {
+				if (Main.mainBoard.isEnemy(position, getColor())) {
 					checkAndAddLegalMove(position);
 				}
 				break;
@@ -31,10 +32,10 @@ public class Rook extends Piece {
 		}
 		for (int i = 7; i > 0; i--) {
 			position = getPosition().addRows(i);
-			if (Board.isEmpty(position)) {
+			if (Main.mainBoard.isEmpty(position)) {
 				checkAndAddLegalMove(position);
 			} else {
-				if (Board.isEnemy(position, getColor())) {
+				if (Main.mainBoard.isEnemy(position, getColor())) {
 					checkAndAddLegalMove(position);
 				}
 				break;
@@ -43,10 +44,10 @@ public class Rook extends Piece {
 		// Columns
 		for (int i = 1; i < 8; i++) {
 			position = getPosition().addColums(i);
-			if (Board.isEmpty(position)) {
+			if (Main.mainBoard.isEmpty(position)) {
 				checkAndAddLegalMove(position);
 			} else {
-				if (Board.isEnemy(position, getColor())) {
+				if (Main.mainBoard.isEnemy(position, getColor())) {
 					checkAndAddLegalMove(position);
 				}
 				break;
@@ -54,10 +55,10 @@ public class Rook extends Piece {
 		}
 		for (int i = 7; i > 0; i--) {
 			position = getPosition().addColums(i);
-			if (Board.isEmpty(position)) {
+			if (Main.mainBoard.isEmpty(position)) {
 				checkAndAddLegalMove(position);
 			} else {
-				if (Board.isEnemy(position, getColor())) {
+				if (Main.mainBoard.isEnemy(position, getColor())) {
 					checkAndAddLegalMove(position);
 				}
 				break;
