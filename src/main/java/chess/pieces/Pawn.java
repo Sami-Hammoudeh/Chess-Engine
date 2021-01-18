@@ -36,13 +36,13 @@ public class Pawn extends Piece {
 
 	private void addMove(Position position) {
 		if (Board.isEmpty(position)) {
-			addLegalMove(position);
+			checkAndAddLegalMove(position);
 		}
 	}
 
 	private void addKill(Position position) {
 		if (Board.isEnemy(position, getColor())) {
-			addLegalMove(position);
+			checkAndAddLegalMove(position);
 		}
 	}
 

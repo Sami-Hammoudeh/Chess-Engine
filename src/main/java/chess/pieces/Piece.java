@@ -76,7 +76,9 @@ public abstract class Piece {
 		this.white = !black;
 	}
 
-	public void addLegalMove(Position position) {
+	public void checkAndAddLegalMove(Position position) {
+		//Check if the king is inCheck
+		
 		legalMoves.add(position);
 	}
 

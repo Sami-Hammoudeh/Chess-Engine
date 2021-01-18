@@ -22,7 +22,7 @@ public class Knight extends Piece {
 		int[] r = { -2, -1, 1, 2, 2, 1, -1, -2 };
 		for (int i = 0; i < c.length; i++) {
 			if (Board.isEmpty(getPosition()) || Board.isEnemy(getPosition(), getColor())) {
-				addLegalMove(getPosition().addRows(r[i]).addColums(c[i]));
+				checkAndAddLegalMove(getPosition().addRows(r[i]).addColums(c[i]));
 			}
 		}
 		return legalMoves;

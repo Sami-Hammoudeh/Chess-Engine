@@ -21,10 +21,10 @@ public class Rook extends Piece {
 		for (int i = 1; i < 8; i++) {
 			position = getPosition().addRows(i);
 			if (Board.isEmpty(position)) {
-				addLegalMove(position);
+				checkAndAddLegalMove(position);
 			} else {
 				if (Board.isEnemy(position, getColor())) {
-					addLegalMove(position);
+					checkAndAddLegalMove(position);
 				}
 				break;
 			}
@@ -32,10 +32,10 @@ public class Rook extends Piece {
 		for (int i = 7; i > 0; i--) {
 			position = getPosition().addRows(i);
 			if (Board.isEmpty(position)) {
-				addLegalMove(position);
+				checkAndAddLegalMove(position);
 			} else {
 				if (Board.isEnemy(position, getColor())) {
-					addLegalMove(position);
+					checkAndAddLegalMove(position);
 				}
 				break;
 			}
@@ -44,10 +44,10 @@ public class Rook extends Piece {
 		for (int i = 1; i < 8; i++) {
 			position = getPosition().addColums(i);
 			if (Board.isEmpty(position)) {
-				addLegalMove(position);
+				checkAndAddLegalMove(position);
 			} else {
 				if (Board.isEnemy(position, getColor())) {
-					addLegalMove(position);
+					checkAndAddLegalMove(position);
 				}
 				break;
 			}
@@ -55,10 +55,10 @@ public class Rook extends Piece {
 		for (int i = 7; i > 0; i--) {
 			position = getPosition().addColums(i);
 			if (Board.isEmpty(position)) {
-				addLegalMove(position);
+				checkAndAddLegalMove(position);
 			} else {
 				if (Board.isEnemy(position, getColor())) {
-					addLegalMove(position);
+					checkAndAddLegalMove(position);
 				}
 				break;
 			}

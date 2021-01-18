@@ -22,7 +22,7 @@ public class King extends Piece {
 		for (int i = 0; i < c.length; i++) {
 			Position position = getPosition().addRows(r[i]).addColums(c[i]);
 			if (Board.isEmpty(position) || Board.isEnemy(position, getColor())) {
-				addLegalMove(position);
+				checkAndAddLegalMove(position);
 			}
 		}
 		return legalMoves;
