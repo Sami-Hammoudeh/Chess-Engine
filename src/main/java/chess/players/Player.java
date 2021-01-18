@@ -8,8 +8,8 @@ import chess.error.Error;
 import chess.pieces.Piece;
 
 public abstract class Player {
-	private static HashSet<Piece> pieces;
-	private static boolean inCheck;
+	private HashSet<Piece> pieces;
+	private boolean inCheck;
 
 	public Player() {
 		pieces = new HashSet<Piece>();
@@ -17,18 +17,18 @@ public abstract class Player {
 		setInCheck(false);
 	}
 
-	public static void killPiece(Piece piece) throws Exception {
+	public void killPiece(Piece piece) throws Exception {
 		if (!pieces.remove(piece)) {
 			throw new Exception(Error.PieceNotFound);
 		}
 	}
 
-	public static void addPiece(Piece piece) {
+	public void addPiece(Piece piece) {
 		pieces.add(piece);
 		Main.mainBoard.setPosition(piece.getPosition(), piece);
 	}
 
-	public static HashSet<Piece> getPieces() {
+	public HashSet<Piece> getPieces() {
 		return pieces;
 	}
 
@@ -36,8 +36,8 @@ public abstract class Player {
 		this.pieces = pieces;
 	}
 
-	public static void setInCheck(boolean inCheck) {
-		Player.inCheck = inCheck;
+	public void setInCheck(boolean inCheck) {
+		this.inCheck = inCheck;
 	}
 
 	public abstract boolean isInCheck();
