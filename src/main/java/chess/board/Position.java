@@ -1,11 +1,13 @@
 package chess.board;
 
 import chess.exception.ChessException;
+import chess.pieces.Piece;
 
 public class Position {
 
 	private int column;
 	private int row;
+	private Piece piece;
 
 	public Position(int column, int row) throws ChessException {
 		setColumn(column);
@@ -75,6 +77,14 @@ public class Position {
 
 	public int getRow() {
 		return row;
+	}
+
+	public Piece getPiece() {
+		return piece;
+	}
+
+	public void setPiece(Piece piece) {
+		this.piece = piece;
 	}
 
 	public void setRow(int row) throws ChessException {

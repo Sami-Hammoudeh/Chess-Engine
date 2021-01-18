@@ -5,7 +5,7 @@ import java.util.HashMap;
 import chess.exception.ChessException;
 import chess.pieces.Piece;
 
-public class Board {
+public abstract class Board {
 	private static HashMap<Position, Piece> positions;
 
 	public Board() {
