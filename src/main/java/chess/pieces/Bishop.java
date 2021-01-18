@@ -2,7 +2,6 @@ package chess.pieces;
 
 import java.util.LinkedList;
 
-import chess.board.Board;
 import chess.board.Position;
 import chess.control.Main;
 import chess.players.Color;

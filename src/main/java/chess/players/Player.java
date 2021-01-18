@@ -2,7 +2,6 @@ package chess.players;
 
 import java.util.HashSet;
 
-import chess.board.Board;
 import chess.control.Main;
 import chess.error.Error;
 import chess.pieces.Piece;
