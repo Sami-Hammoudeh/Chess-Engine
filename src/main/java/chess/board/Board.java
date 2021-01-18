@@ -10,6 +10,8 @@ public abstract class Board {
 	public static Color turn = Color.WHITE;
 
 	public static void movePiece(Piece piece, Position position) throws ChessException {
+		if (turn != piece.getColor())
+			throw new ChessException(ChessException.ILlegalTurn);
 		if (piece.getPosition().equals(position)) {
 			throw new ChessException(ChessException.IllegalMove);
 		}
