@@ -1,18 +1,25 @@
 package chess.pieces;
 
+import java.util.LinkedList;
+
 import chess.board.Board;
 import chess.board.Position;
 import chess.exception.ChessException;
+import chess.players.Color;
 
-public class Piece {
+public abstract class Piece {
 	private static int weight;
 	private static boolean white;
 	private static boolean black;
 	private Position position;
+	private Color color;
 
-	public Piece(Position position) {
+	public Piece(Position position, Color color) {
 		setPosition(position);
+		setColor(color);
 	}
+
+	public abstract LinkedList<Position> getLegalMoves();
 
 	public boolean moveTo(Position position) {
 		if (Board.checkPosition(position) == null) {
@@ -25,6 +32,14 @@ public class Piece {
 			return true;
 		}
 		return false;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	public Position getPosition() {

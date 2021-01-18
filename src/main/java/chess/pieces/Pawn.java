@@ -1,11 +1,21 @@
 package chess.pieces;
 
+import java.util.LinkedList;
+
 import chess.board.Position;
+import chess.players.Color;
 
 public class Pawn extends Piece {
 
-	public Pawn(Position position) {
-		super(position);
+	public Pawn(Position position, Color color) {
+		super(position, color);
+	}
+
+	@Override
+	public LinkedList<Position> getLegalMoves() {
+		LinkedList<Position> legalMoves = new LinkedList<Position>();
+		
+		return null;
 	}
 
 }
