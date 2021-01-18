@@ -29,8 +29,9 @@ public class Pawn extends Piece {
 	}
 
 	private void addToLegalMoves(LinkedList<Position> legalMoves, int column, int row) {
-		if (Board.isEmpty(new Position(column, row))) {
-			
+		Position position = new Position(column, row);
+		if (Board.isEmpty(position)) {
+			legalMoves.add(position);
 		}
 	}
 
