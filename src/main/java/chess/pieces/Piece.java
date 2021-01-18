@@ -22,7 +22,7 @@ public abstract class Piece {
 	public abstract LinkedList<Position> getLegalMoves();
 
 	public boolean moveTo(Position position) {
-		if (Board.checkPosition(position) == null) {
+		if (Board.getPosition(position) == null) {
 			try {
 				Board.movePiece(this, position);
 			} catch (ChessException e) {

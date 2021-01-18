@@ -1,26 +1,29 @@
 package chess.board;
 
-import java.util.HashMap;
-
 import chess.exception.ChessException;
 import chess.pieces.Piece;
 
 public abstract class Board {
-	private static HashMap<Position, Piece> positions;
+
+	private static Piece[][] positions;
 
 	public Board() {
-		positions = new HashMap<Position, Piece>();
+		positions = new Piece[8][8];
 	}
 
 	public static void movePiece(Piece piece, Position position) throws ChessException {
-		if (piece.getPosition() == position) {
+		if (piece.getPosition().equals(position)) {
 			throw new ChessException(ChessException.IllegalMove);
 		}
-		positions.put(piece.getPosition(), null);
-		positions.put(position, piece);
+		setPosition(piece.getPosition(), null);
+		setPosition(position, piece);
 	}
 
-	public static Piece checkPosition(Position position) {
-		return positions.get(position);
+	public static Piece getPosition(Position position) {
+		return positions[position.getColumn() - 1][position.getRow() - 1];
+	}
+
+	public static void setPosition(Position position, Piece piece) {
+		positions[position.getColumn() - 1][position.getRow() - 1] = piece;
 	}
 }

@@ -2,13 +2,14 @@ package chess.players;
 
 import java.util.HashSet;
 
+import chess.board.Board;
 import chess.exception.ChessException;
 import chess.pieces.Piece;
 
 public abstract class Player {
 	private HashSet<Piece> pieces;
 
-	public Player() {
+	public Player(){
 		pieces = new HashSet<Piece>();
 		fillPieces();
 	}
@@ -17,6 +18,11 @@ public abstract class Player {
 		if (!pieces.remove(piece)) {
 			throw new ChessException(ChessException.PieceNotFound);
 		}
+	}
+
+	public void addPiece(Piece piece) {
+		pieces.add(piece);
+		Board.setPosition(piece.getPosition(), piece);
 	}
 
 	public HashSet<Piece> getPieces() {
