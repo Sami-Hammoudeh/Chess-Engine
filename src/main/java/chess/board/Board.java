@@ -27,6 +27,10 @@ public abstract class Board {
 			turn = Color.WHITE;
 	}
 
+	public State copy() {
+		return new State(positions, turn);
+	}
+
 	public static Piece getPosition(Position position) {
 		return positions[position.getColumn() - 1][position.getRow() - 1];
 	}
