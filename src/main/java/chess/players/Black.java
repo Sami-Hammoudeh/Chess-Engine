@@ -6,42 +6,31 @@ import chess.board.Position;
 import chess.exception.ChessException;
 import chess.pieces.*;
 
-public class Black {
-	private HashSet<Piece> pieces;
-
-	public Black() {
-		pieces = new HashSet<Piece>();
-		fillPieces();
-	}
-
-	public void killPiece(Piece piece) throws ChessException {
-		if (!pieces.remove(piece)) {
-			throw new ChessException(ChessException.PieceNotFound);
-		}
-	}
-
-	private void fillPieces() {
+public class Black extends Player {
+	
+	@Override
+	public void fillPieces() {
 		// Pawns
-		pieces.add(new Pawn(Position.A7));
-		pieces.add(new Pawn(Position.B7));
-		pieces.add(new Pawn(Position.C7));
-		pieces.add(new Pawn(Position.D7));
-		pieces.add(new Pawn(Position.E7));
-		pieces.add(new Pawn(Position.F7));
-		pieces.add(new Pawn(Position.G7));
-		pieces.add(new Pawn(Position.H7));
+		getPieces().add(new Pawn(Position.A7));
+		getPieces().add(new Pawn(Position.B7));
+		getPieces().add(new Pawn(Position.C7));
+		getPieces().add(new Pawn(Position.D7));
+		getPieces().add(new Pawn(Position.E7));
+		getPieces().add(new Pawn(Position.F7));
+		getPieces().add(new Pawn(Position.G7));
+		getPieces().add(new Pawn(Position.H7));
 		// Rooks
-		pieces.add(new Rook(Position.A8));
-		pieces.add(new Rook(Position.H8));
+		getPieces().add(new Rook(Position.A8));
+		getPieces().add(new Rook(Position.H8));
 		// Knights
-		pieces.add(new Knight(Position.B8));
-		pieces.add(new Knight(Position.G8));
+		getPieces().add(new Knight(Position.B8));
+		getPieces().add(new Knight(Position.G8));
 		// Bishops
-		pieces.add(new Bishop(Position.C8));
-		pieces.add(new Bishop(Position.F8));
+		getPieces().add(new Bishop(Position.C8));
+		getPieces().add(new Bishop(Position.F8));
 		// Queen
-		pieces.add(new Queen(Position.D8));
+		getPieces().add(new Queen(Position.D8));
 		// King
-		pieces.add(new King(Position.E8));
+		getPieces().add(new King(Position.E8));
 	}
 }
