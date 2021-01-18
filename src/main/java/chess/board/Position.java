@@ -4,6 +4,7 @@ public class Position {
 
 	private int column;
 	private int row;
+	private boolean valid;
 
 	public Position(int column, int row) {
 		setColumn(column);
@@ -11,12 +12,10 @@ public class Position {
 	}
 
 	public Position(char column, int row) {
-		column = charToInt(column);
-		setColumn(column);
-		setRow(row);
+		this(charToInt(column), row);
 	}
 
-	private char charToInt(char column) {
+	private static int charToInt(char column) {
 		column = Character.toUpperCase(column);
 		switch (column) {
 		case 'A':
@@ -33,8 +32,10 @@ public class Position {
 			return 6;
 		case 'G':
 			return 7;
-		default:
+		case 'H':
 			return 8;
+		default:
+			return 9;
 		}
 	}
 
@@ -42,7 +43,7 @@ public class Position {
 		return column;
 	}
 
-	public char getColumnAsChar() {
+	public Character getColumnAsChar() {
 		switch (column) {
 		case 1:
 			return 'A';
@@ -58,12 +59,16 @@ public class Position {
 			return 'F';
 		case 7:
 			return 'G';
-		default:
+		case 8:
 			return 'H';
+		default:
+			return null;
 		}
 	}
 
 	public void setColumn(int column) {
+		if (column < 1 || column > 8)
+			setValid(false);
 		this.column = column;
 	}
 
@@ -72,11 +77,21 @@ public class Position {
 	}
 
 	public void setRow(int row) {
+		if (row < 1 || row > 8)
+			setValid(false);
 		this.row = row;
 	}
 
 	public boolean equals(Position position) {
 		return column == position.getColumn() && row == position.getRow();
+	}
+
+	public boolean isValid() {
+		return valid;
+	}
+
+	public void setValid(boolean valid) {
+		this.valid = valid;
 	}
 
 }
