@@ -9,6 +9,7 @@ public class Queen extends Piece {
 
 	public Queen(Position position, Color color) {
 		super(position, color);
+		setWeight(8);
 	}
 
 	@Override

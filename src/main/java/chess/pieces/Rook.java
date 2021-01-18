@@ -9,6 +9,7 @@ public class Rook extends Piece {
 
 	public Rook(Position position, Color color) {
 		super(position, color);
+		setWeight(5);
 	}
 
 	@Override

@@ -8,9 +8,9 @@ import chess.exception.ChessException;
 import chess.players.Color;
 
 public abstract class Piece {
-	private static int weight;
-	private static boolean white;
-	private static boolean black;
+	private int weight;
+	private boolean white;
+	private boolean black;
 	private Position position;
 	private Color color;
 
@@ -50,26 +50,30 @@ public abstract class Piece {
 		this.position = position;
 	}
 
-	public static int getWeight() {
-		return weight;
+	public int getWeight() {
+		return this.weight;
 	}
 
-	public static boolean isWhite() {
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public boolean isWhite() {
 		return white;
 	}
 
-	public static void setWhite(boolean white) {
-		Piece.white = white;
-		Piece.black = !white;
+	public void setWhite(boolean white) {
+		this.white = white;
+		this.black = !white;
 	}
 
-	public static boolean isBlack() {
+	public boolean isBlack() {
 		return black;
 	}
 
-	public static void setBlack(boolean black) {
-		Piece.black = black;
-		Piece.white = !black;
+	public void setBlack(boolean black) {
+		this.black = black;
+		this.white = !black;
 	}
 
 }
