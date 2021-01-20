@@ -76,10 +76,12 @@ public abstract class Piece {
 	}
 
 	public void checkAndAddLegalMove(Position position) {
-		//Check if the king is inCheck
-		
+		// Check if the king is inCheck
+
 		legalMoves.add(position);
 	}
+
+	public abstract Piece copy();
 
 	public abstract LinkedList<Position> getLegalMoves();
 

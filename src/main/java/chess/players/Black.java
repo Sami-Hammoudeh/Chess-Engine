@@ -1,7 +1,5 @@
 package chess.players;
 
-import java.util.HashSet;
-
 import chess.board.Position;
 import chess.pieces.*;
 

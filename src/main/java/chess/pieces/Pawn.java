@@ -46,4 +46,10 @@ public class Pawn extends Piece {
 		}
 	}
 
+	@Override
+	public Piece copy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -66,4 +66,10 @@ public class Rook extends Piece {
 		return legalMoves;
 	}
 
+	@Override
+	public Piece copy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
