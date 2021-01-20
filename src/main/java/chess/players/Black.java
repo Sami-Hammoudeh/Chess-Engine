@@ -1,5 +1,7 @@
 package chess.players;
 
+import java.util.HashSet;
+
 import chess.board.Position;
 import chess.pieces.*;
 
@@ -34,5 +36,10 @@ public class Black extends Player {
 	@Override
 	public boolean isInCheck() {
 		return false;
+	}
+
+	@Override
+	public Player copy() {
+		return null;
 	}
 }

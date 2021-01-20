@@ -16,6 +16,11 @@ public abstract class Player {
 		setInCheck(false);
 	}
 
+	public Player(HashSet<Piece> pieces) {
+		setPieces(pieces);
+		setInCheck(inCheck);
+	}
+
 	public void killPiece(Piece piece) throws Exception {
 		if (!pieces.remove(piece)) {
 			throw new Exception(Error.PieceNotFound);
@@ -38,6 +43,8 @@ public abstract class Player {
 	public void setInCheck(boolean inCheck) {
 		this.inCheck = inCheck;
 	}
+
+	public abstract Player copy();
 
 	public abstract boolean isInCheck();
 

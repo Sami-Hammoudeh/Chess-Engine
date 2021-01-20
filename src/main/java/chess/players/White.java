@@ -35,4 +35,9 @@ public class White extends Player {
 	public boolean isInCheck() {
 		return false;
 	}
+
+	@Override
+	public Player copy() {
+		return null;
+	}
 }
