@@ -40,4 +40,10 @@ public class Black extends Player {
 	public Player copy() {
 		return null;
 	}
+
+	@Override
+	public boolean equals(Player player) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

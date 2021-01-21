@@ -81,6 +81,8 @@ public abstract class Piece {
 		legalMoves.add(position);
 	}
 
+	public abstract boolean equals(Piece piece);
+
 	public abstract Piece copy();
 
 	public abstract LinkedList<Position> getLegalMoves();

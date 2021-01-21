@@ -42,6 +42,10 @@ public class Board {
 		return new Board(positions, turn);
 	}
 
+	public boolean equals(Board board) {
+		return false;
+	}
+
 	public Piece getPosition(Position position) {
 		return positions[position.getColumn() - 1][position.getRow() - 1];
 	}

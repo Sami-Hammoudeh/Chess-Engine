@@ -46,6 +46,8 @@ public abstract class Player {
 
 	public abstract Player copy();
 
+	public abstract boolean equals(Player player);
+
 	public abstract boolean isInCheck();
 
 	public abstract void fillPieces();

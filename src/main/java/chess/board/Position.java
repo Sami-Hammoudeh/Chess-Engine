@@ -81,6 +81,10 @@ public class Position {
 		return column == position.getColumn() && row == position.getRow();
 	}
 
+	public Position copy() {
+		return new Position(column, row);
+	}
+
 	public Position addRows(int rows) {
 		return new Position(column, rows + row);
 	}

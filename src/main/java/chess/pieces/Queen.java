@@ -28,4 +28,10 @@ public class Queen extends Piece {
 		return null;
 	}
 
+	@Override
+	public boolean equals(Piece piece) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
