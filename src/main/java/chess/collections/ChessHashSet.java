@@ -1,4 +1,4 @@
-package chess.collection;
+package chess.collections;
 
 import java.util.HashSet;
 
