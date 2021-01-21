@@ -3,7 +3,7 @@ package chess.pieces;
 import java.util.LinkedList;
 
 import chess.board.Position;
-import chess.opject.ChessObject;
+import chess.object.ChessObject;
 import chess.players.Color;
 
 public class Queen extends Piece {

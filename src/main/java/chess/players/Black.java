@@ -1,7 +1,7 @@
 package chess.players;
 
 import chess.board.Position;
-import chess.opject.ChessObject;
+import chess.object.ChessObject;
 import chess.pieces.*;
 
 public class Black extends Player {

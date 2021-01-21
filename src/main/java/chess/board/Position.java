@@ -1,6 +1,6 @@
 package chess.board;
 
-import chess.opject.ChessObject;
+import chess.object.ChessObject;
 
 public class Position extends ChessObject {
 

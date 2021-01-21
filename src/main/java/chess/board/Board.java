@@ -1,7 +1,7 @@
 package chess.board;
 
 import chess.error.Error;
-import chess.opject.ChessObject;
+import chess.object.ChessObject;
 import chess.pieces.Piece;
 import chess.players.Color;
 

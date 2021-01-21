@@ -1,4 +1,4 @@
-package chess.opject;
+package chess.object;
 
 public abstract class ChessObject {
 

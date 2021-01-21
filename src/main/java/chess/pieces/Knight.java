@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Position;
 import chess.control.Main;
-import chess.opject.ChessObject;
+import chess.object.ChessObject;
 import chess.players.Color;
 
 public class Knight extends Piece {
