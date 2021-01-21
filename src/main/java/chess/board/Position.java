@@ -1,6 +1,8 @@
 package chess.board;
 
-public class Position {
+import chess.opject.ChessObject;
+
+public class Position extends ChessObject {
 
 	private int column;
 	private int row;
@@ -77,20 +79,24 @@ public class Position {
 		this.row = row;
 	}
 
-	public boolean equals(Position position) {
-		return column == position.getColumn() && row == position.getRow();
-	}
-
-	public Position copy() {
-		return new Position(column, row);
-	}
-
 	public Position addRows(int rows) {
 		return new Position(column, rows + row);
 	}
 
 	public Position addColums(int colums) {
 		return new Position(colums + column, row);
+	}
+
+	@Override
+	public boolean equals(ChessObject co) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ChessObject copy() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

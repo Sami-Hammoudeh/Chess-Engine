@@ -4,9 +4,10 @@ import java.util.LinkedList;
 
 import chess.board.Position;
 import chess.control.Main;
+import chess.opject.ChessObject;
 import chess.players.Color;
 
-public abstract class Piece {
+public abstract class Piece extends ChessObject {
 	private int weight;
 	private boolean white;
 	private boolean black;
@@ -80,10 +81,6 @@ public abstract class Piece {
 
 		legalMoves.add(position);
 	}
-
-	public abstract boolean equals(Piece piece);
-
-	public abstract Piece copy();
 
 	public abstract LinkedList<Position> getLegalMoves();
 

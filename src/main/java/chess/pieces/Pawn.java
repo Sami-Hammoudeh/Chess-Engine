@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Position;
 import chess.control.Main;
+import chess.opject.ChessObject;
 import chess.players.Color;
 
 public class Pawn extends Piece {
@@ -47,15 +48,15 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	public Piece copy() {
+	public boolean equals(ChessObject co) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 	@Override
-	public boolean equals(Piece piece) {
+	public ChessObject copy() {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 }

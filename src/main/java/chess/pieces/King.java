@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import chess.board.Position;
 import chess.control.Main;
+import chess.opject.ChessObject;
 import chess.players.Color;
 
 public class King extends Piece {
@@ -29,13 +30,13 @@ public class King extends Piece {
 	}
 
 	@Override
-	public Piece copy() {
+	public ChessObject copy() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean equals(Piece piece) {
+	public boolean equals(ChessObject co) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -1,10 +1,11 @@
 package chess.board;
 
 import chess.error.Error;
+import chess.opject.ChessObject;
 import chess.pieces.Piece;
 import chess.players.Color;
 
-public class Board {
+public class Board extends ChessObject {
 
 	private Piece[][] positions;
 	public Color turn;
@@ -36,14 +37,6 @@ public class Board {
 			turn = Color.BLACK;
 		else
 			turn = Color.WHITE;
-	}
-
-	public Board copy() {
-		return new Board(positions, turn);
-	}
-
-	public boolean equals(Board board) {
-		return false;
 	}
 
 	public Piece getPosition(Position position) {
@@ -84,5 +77,17 @@ public class Board {
 
 	public void setPosition(Position position, Piece piece) {
 		positions[position.getColumn() - 1][position.getRow() - 1] = piece;
+	}
+
+	@Override
+	public boolean equals(ChessObject co) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ChessObject copy() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

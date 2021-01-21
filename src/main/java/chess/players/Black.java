@@ -1,6 +1,7 @@
 package chess.players;
 
 import chess.board.Position;
+import chess.opject.ChessObject;
 import chess.pieces.*;
 
 public class Black extends Player {
@@ -37,12 +38,12 @@ public class Black extends Player {
 	}
 
 	@Override
-	public Player copy() {
+	public ChessObject copy() {
 		return null;
 	}
 
 	@Override
-	public boolean equals(Player player) {
+	public boolean equals(ChessObject co) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -4,9 +4,10 @@ import java.util.HashSet;
 
 import chess.control.Main;
 import chess.error.Error;
+import chess.opject.ChessObject;
 import chess.pieces.Piece;
 
-public abstract class Player {
+public abstract class Player extends ChessObject {
 	private HashSet<Piece> pieces;
 	private boolean inCheck;
 
@@ -43,10 +44,6 @@ public abstract class Player {
 	public void setInCheck(boolean inCheck) {
 		this.inCheck = inCheck;
 	}
-
-	public abstract Player copy();
-
-	public abstract boolean equals(Player player);
 
 	public abstract boolean isInCheck();
 
