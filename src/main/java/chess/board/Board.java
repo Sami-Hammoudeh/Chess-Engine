@@ -79,15 +79,59 @@ public class Board extends ChessObject {
 		positions[position.getColumn() - 1][position.getRow() - 1] = piece;
 	}
 
+	public Piece[][] getPositions() {
+		return positions;
+	}
+
+	public void setPositions(Piece[][] positions) {
+		this.positions = positions;
+	}
+
+	public Color getTurn() {
+		return turn;
+	}
+
+	public void setTurn(Color turn) {
+		this.turn = turn;
+	}
+
 	@Override
 	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
+		if (co == this)
+			return true;
+		if (co == null || co.getClass() != getClass())
+			return false;
+		Board board = (Board) co;
+		if (board.getTurn() != getTurn())
+			return false;
+		int i = 0;
+		for (Piece[] arr : positions) {
+			int j = 0;
+			for (Piece piece : arr) {
+				if (!(piece.equals(getPositions()[i][j])))
+					return false;
+				j++;
+			}
+			i++;
+		}
+		return true;
 	}
 
 	@Override
 	public ChessObject copy() {
-		// TODO Auto-generated method stub
-		return null;
+		Board board = new Board();
+		int i = 0;
+		for (Piece[] arr : positions) {
+			int j = 0;
+			for (Piece piece : arr) {
+				if (!(piece.equals(getPositions()[i][j]))) {
+					board.getPositions()[i][j] = (Piece) piece.copy();
+				}
+				j++;
+			}
+			i++;
+		}
+		board.setTurn(getTurn());
+		return board;
 	}
 }
