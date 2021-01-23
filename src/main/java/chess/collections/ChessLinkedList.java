@@ -4,8 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import chess.object.ChessObject;
 
-public class ChessLinkedList<E extends ChessObject> extends LinkedList<ChessObject>
-		implements ChessCollection<ChessObject> {
+public class ChessLinkedList<E extends ChessObject> extends LinkedList<E> implements ChessCollection<ChessObject> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +17,8 @@ public class ChessLinkedList<E extends ChessObject> extends LinkedList<ChessObje
 		if (linkedList.size() != size())
 			return false;
 		Iterator<ChessObject> i1 = linkedList.iterator();
-		Iterator<ChessObject> i2 = iterator();
+		@SuppressWarnings("unchecked")
+		Iterator<ChessObject> i2 = (Iterator<ChessObject>) iterator();
 		while (i1.hasNext() && i2.hasNext())
 			if (!(i1.next().equals(i2.next())))
 				return false;
@@ -27,7 +27,8 @@ public class ChessLinkedList<E extends ChessObject> extends LinkedList<ChessObje
 
 	public ChessCollection<ChessObject> copy() {
 		ChessLinkedList<ChessObject> list = new ChessLinkedList<ChessObject>();
-		Iterator<ChessObject> iterator = iterator();
+		@SuppressWarnings("unchecked")
+		Iterator<ChessObject> iterator = (Iterator<ChessObject>) iterator();
 		while (iterator.hasNext()) {
 			list.add(iterator.next());
 		}

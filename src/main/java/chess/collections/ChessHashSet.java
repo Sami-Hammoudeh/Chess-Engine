@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import chess.object.ChessObject;
 
-public class ChessHashSet<E extends ChessObject> extends HashSet<ChessObject> implements ChessCollection<ChessObject> {
+public class ChessHashSet<E extends ChessObject> extends HashSet<E> implements ChessCollection<ChessObject> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,8 @@ public class ChessHashSet<E extends ChessObject> extends HashSet<ChessObject> im
 		if (linkedList.size() != size())
 			return false;
 		Iterator<ChessObject> i1 = linkedList.iterator();
-		Iterator<ChessObject> i2 = iterator();
+		@SuppressWarnings("unchecked")
+		Iterator<ChessObject> i2 = (Iterator<ChessObject>) iterator();
 		while (i1.hasNext() && i2.hasNext())
 			if (!(i1.next().equals(i2.next())))
 				return false;
@@ -27,7 +28,8 @@ public class ChessHashSet<E extends ChessObject> extends HashSet<ChessObject> im
 
 	public ChessCollection<ChessObject> copy() {
 		ChessHashSet<ChessObject> list = new ChessHashSet<ChessObject>();
-		Iterator<ChessObject> iterator = iterator();
+		@SuppressWarnings("unchecked")
+		Iterator<ChessObject> iterator = (Iterator<ChessObject>) iterator();
 		while (iterator.hasNext()) {
 			list.add(iterator.next());
 		}
