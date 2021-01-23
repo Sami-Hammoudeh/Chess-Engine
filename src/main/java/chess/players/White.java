@@ -1,6 +1,7 @@
 package chess.players;
 
 import chess.board.Position;
+import chess.collections.ChessHashSet;
 import chess.object.ChessObject;
 import chess.pieces.*;
 
@@ -39,12 +40,9 @@ public class White extends Player {
 
 	@Override
 	public ChessObject copy() {
-		return null;
+		White white = new White();
+		white.setPieces((ChessHashSet<Piece>) getPieces().copy());
+		return white;
 	}
 
-	@Override
-	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

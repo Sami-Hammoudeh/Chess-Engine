@@ -29,15 +29,7 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public ChessObject copy() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Knight((Position) getPosition().copy(), getColor());
 	}
-
 }

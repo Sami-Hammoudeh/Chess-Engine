@@ -76,11 +76,22 @@ public abstract class Piece extends ChessObject {
 	}
 
 	public void checkAndAddLegalMove(Position position) {
-		// Check if the king is inCheck
-
+		// TODO: Check if the king is inCheck
 		legalMoves.add(position);
 	}
 
-	public abstract ChessLinkedList<Position> getLegalMoves();
+	@Override
+	public boolean equals(ChessObject co) {
+		if (co == this)
+			return true;
+		if (co == null || co.getClass() != getClass())
+			return false;
+		Piece piece = (Piece) co;
+		return piece.getPosition().equals(getPosition()) && piece.getColor() == getColor();
+	}
+
+	public ChessLinkedList<Position> getLegalMoves() {
+		return new ChessLinkedList<Position>();
+	}
 
 }

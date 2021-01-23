@@ -30,14 +30,7 @@ public class King extends Piece {
 
 	@Override
 	public ChessObject copy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
+		return new King((Position) getPosition().copy(), getColor());
 	}
 
 }

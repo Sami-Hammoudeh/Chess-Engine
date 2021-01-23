@@ -44,6 +44,16 @@ public abstract class Player extends ChessObject {
 		this.inCheck = inCheck;
 	}
 
+	@Override
+	public boolean equals(ChessObject co) {
+		if (co == this)
+			return true;
+		if (co == null || co.getClass() != this.getClass())
+			return false;
+		Player player = (Player) co;
+		return player.getPieces().equals(getPieces());
+	}
+
 	public abstract boolean isInCheck();
 
 	public abstract void fillPieces();

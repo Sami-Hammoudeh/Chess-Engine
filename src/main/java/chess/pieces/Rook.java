@@ -72,10 +72,4 @@ public class Rook extends Piece {
 		return null;
 	}
 
-	@Override
-	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }

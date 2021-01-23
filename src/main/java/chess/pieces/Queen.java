@@ -24,14 +24,7 @@ public class Queen extends Piece {
 
 	@Override
 	public ChessObject copy() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
+		return new Queen((Position) getPosition().copy(), getColor());
 	}
 
 }
