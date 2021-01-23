@@ -32,7 +32,7 @@ public abstract class Player extends ChessObject {
 
 	public void addPiece(Piece piece) {
 		pieces.add(piece);
-		Main.mainBoard.setPosition(piece.getPosition(), piece);
+		Main.BOARD.setPosition(piece.getPosition(), piece);
 	}
 
 	public Piece getKing() {

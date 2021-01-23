@@ -2,6 +2,7 @@ package chess.players;
 
 import chess.board.Position;
 import chess.collections.ChessHashSet;
+import chess.control.Main;
 import chess.object.ChessObject;
 import chess.pieces.*;
 
@@ -10,6 +11,7 @@ public class White extends Player {
 	public White() {
 		super();
 		setColor(Color.WHITE);
+		setEnemy(Main.BLACK);
 	}
 
 	public White(ChessHashSet<Piece> pieces) {
