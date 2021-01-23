@@ -1,5 +1,6 @@
 package chess.pieces;
 
+import chess.board.Board;
 import chess.board.Position;
 import chess.collections.ChessLinkedList;
 import chess.control.Main;
@@ -22,10 +23,10 @@ public abstract class Piece extends ChessObject {
 		legalMoves = new ChessLinkedList<Position>();
 	}
 
-	public boolean moveTo(Position position) {
-		if (Main.BOARD.isEmpty(position) || Main.BOARD.isEnemy(position, color)) {
+	public boolean move(Board board, Position position) {
+		if (board.isEmpty(position) || board.isEnemy(position, color)) {
 			try {
-				Main.BOARD.movePiece(this, position);
+				board.movePiece(this, position);
 			} catch (Exception e) {
 				return false;
 			}
@@ -94,7 +95,16 @@ public abstract class Piece extends ChessObject {
 	}
 
 	public void checkAndAddLegalMove(Position position) {
-		// TODO: Check if the king is inCheck
+		Board state = (Board) Main.BOARD.copy();
+		Player player = (Player) getPlayer().copy();
+		Piece piece = player.getPiece(getPosition());
+		try {
+			piece.move(state, position);
+			if (player.isInCheck())
+				return;
+		} catch (Exception e) {
+			return;
+		}
 		legalMoves.add(position);
 	}
 
