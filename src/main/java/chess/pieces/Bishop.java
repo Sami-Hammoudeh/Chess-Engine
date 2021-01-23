@@ -68,14 +68,17 @@ public class Bishop extends Piece {
 
 	@Override
 	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
+		if (co == this)
+			return true;
+		if (co == null || co.getClass() != getClass())
+			return false;
+		Bishop bishop = (Bishop) co;
+		return bishop.getPosition().equals(getPosition()) && bishop.getColor() == getColor();
 	}
 
 	@Override
 	public ChessObject copy() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Bishop((Position) getPosition().copy(), getColor());
 	}
 
 }
