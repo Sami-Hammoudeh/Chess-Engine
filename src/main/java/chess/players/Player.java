@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 import chess.board.Position;
 import chess.collections.ChessHashSet;
+import chess.collections.ChessLinkedList;
 import chess.control.Main;
 import chess.error.Error;
 import chess.object.ChessObject;
@@ -96,6 +97,13 @@ public abstract class Player extends ChessObject {
 				if (position.equals(kingPosition))
 					return true;
 		return false;
+	}
+
+	public ChessLinkedList<Position> getLegalMoves() {
+		ChessLinkedList<Position> list = new ChessLinkedList<Position>();
+		for (Piece piece : getPieces())
+			list.addAll(piece.getLegalMoves());
+		return list;
 	}
 
 	public abstract void fillPieces();
