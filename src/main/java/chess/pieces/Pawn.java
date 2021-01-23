@@ -13,6 +13,7 @@ public class Pawn extends Piece {
 		setWeight(1);
 	}
 
+	@Override
 	public ChessLinkedList<Position> getLegalMoves() {
 		legalMoves = new ChessLinkedList<Position>();
 		// White Piece
@@ -35,13 +36,13 @@ public class Pawn extends Piece {
 	}
 
 	private void addMove(Position position) {
-		if (Main.mainBoard.isEmpty(position)) {
+		if (Main.BOARD.isEmpty(position)) {
 			checkAndAddLegalMove(position);
 		}
 	}
 
 	private void addKill(Position position) {
-		if (Main.mainBoard.isEnemy(position, getColor())) {
+		if (Main.BOARD.isEnemy(position, getColor())) {
 			checkAndAddLegalMove(position);
 		}
 	}

@@ -21,9 +21,9 @@ public abstract class Piece extends ChessObject {
 	}
 
 	public boolean moveTo(Position position) {
-		if (Main.mainBoard.getPosition(position) == null) {
+		if (Main.BOARD.isEmpty(position) || Main.BOARD.isEnemy(position, color)) {
 			try {
-				Main.mainBoard.movePiece(this, position);
+				Main.BOARD.movePiece(this, position);
 			} catch (Exception e) {
 				return false;
 			}
@@ -90,8 +90,6 @@ public abstract class Piece extends ChessObject {
 		return piece.getPosition().equals(getPosition()) && piece.getColor() == getColor();
 	}
 
-	public ChessLinkedList<Position> getLegalMoves() {
-		return new ChessLinkedList<Position>();
-	}
+	public abstract ChessLinkedList<Position> getLegalMoves();
 
 }
