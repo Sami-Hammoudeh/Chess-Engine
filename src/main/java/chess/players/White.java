@@ -7,6 +7,16 @@ import chess.pieces.*;
 
 public class White extends Player {
 
+	public White() {
+		super();
+		setColor(Color.WHITE);
+	}
+
+	public White(ChessHashSet<Piece> pieces) {
+		super(pieces);
+		setColor(Color.WHITE);
+	}
+
 	@Override
 	public void fillPieces() {
 		// Pawns
@@ -31,11 +41,6 @@ public class White extends Player {
 		addPiece(new Queen(new Position('D', 1), Color.WHITE));
 		// King
 		addPiece(new King(new Position('E', 1), Color.WHITE));
-	}
-
-	@Override
-	public boolean isInCheck() {
-		return false;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package chess.players;
 
+import chess.board.Position;
 import chess.collections.ChessHashSet;
 import chess.control.Main;
 import chess.error.Error;
@@ -9,6 +10,8 @@ import chess.pieces.Piece;
 public abstract class Player extends ChessObject {
 	private ChessHashSet<Piece> pieces;
 	private boolean inCheck;
+	private Player enemy;
+	private Color color;
 
 	public Player() {
 		pieces = new ChessHashSet<Piece>();
@@ -32,12 +35,32 @@ public abstract class Player extends ChessObject {
 		Main.mainBoard.setPosition(piece.getPosition(), piece);
 	}
 
+	public Piece getKing() {
+		return null;
+	}
+
 	public ChessHashSet<Piece> getPieces() {
 		return pieces;
 	}
 
 	public void setPieces(ChessHashSet<Piece> pieces) {
 		this.pieces = pieces;
+	}
+
+	public Player getEnemy() {
+		return enemy;
+	}
+
+	public void setEnemy(Player enemy) {
+		this.enemy = enemy;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 	public void setInCheck(boolean inCheck) {
@@ -54,7 +77,14 @@ public abstract class Player extends ChessObject {
 		return player.getPieces().equals(getPieces());
 	}
 
-	public abstract boolean isInCheck();
+	public boolean isInCheck() {
+		Position kingPosition = getKing().getPosition();
+		for (Piece piece : getEnemy().getPieces())
+			for (Position position : piece.getLegalMoves())
+				if (position.equals(kingPosition))
+					return true;
+		return false;
+	}
 
 	public abstract void fillPieces();
 }
