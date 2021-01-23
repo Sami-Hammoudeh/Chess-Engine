@@ -89,14 +89,17 @@ public class Position extends ChessObject {
 
 	@Override
 	public boolean equals(ChessObject co) {
-		// TODO Auto-generated method stub
-		return false;
+		if (co == this)
+			return true;
+		if (co == null || co.getClass() != getClass())
+			return false;
+		Position position = (Position) co;
+		return position.getColumn() == getColumn() && position.getRow() == getRow();
 	}
 
 	@Override
 	public ChessObject copy() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Position(getColumn(), getRow());
 	}
 
 }
