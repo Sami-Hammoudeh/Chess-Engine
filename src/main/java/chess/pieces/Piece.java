@@ -5,6 +5,7 @@ import chess.collections.ChessLinkedList;
 import chess.control.Main;
 import chess.object.ChessObject;
 import chess.players.Color;
+import chess.players.Player;
 
 public abstract class Piece extends ChessObject {
 	private int weight;
@@ -12,6 +13,7 @@ public abstract class Piece extends ChessObject {
 	private boolean black;
 	private Position position;
 	private Color color;
+	private Player player;
 	ChessLinkedList<Position> legalMoves;
 
 	public Piece(Position position, Color color) {
@@ -39,6 +41,10 @@ public abstract class Piece extends ChessObject {
 
 	public void setColor(Color color) {
 		this.color = color;
+		if (color == Color.WHITE)
+			setPlayer(Main.WHITE);
+		else
+			setPlayer(Main.BLACK);
 	}
 
 	public Position getPosition() {
@@ -73,6 +79,18 @@ public abstract class Piece extends ChessObject {
 	public void setBlack(boolean black) {
 		this.black = black;
 		this.white = !black;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
+
+	public void setLegalMoves(ChessLinkedList<Position> legalMoves) {
+		this.legalMoves = legalMoves;
 	}
 
 	public void checkAndAddLegalMove(Position position) {
