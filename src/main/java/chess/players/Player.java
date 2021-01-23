@@ -1,23 +1,22 @@
 package chess.players;
 
-import java.util.HashSet;
-
+import chess.collections.ChessHashSet;
 import chess.control.Main;
 import chess.error.Error;
 import chess.object.ChessObject;
 import chess.pieces.Piece;
 
 public abstract class Player extends ChessObject {
-	private HashSet<Piece> pieces;
+	private ChessHashSet<Piece> pieces;
 	private boolean inCheck;
 
 	public Player() {
-		pieces = new HashSet<Piece>();
+		pieces = new ChessHashSet<Piece>();
 		fillPieces();
 		setInCheck(false);
 	}
 
-	public Player(HashSet<Piece> pieces) {
+	public Player(ChessHashSet<Piece> pieces) {
 		setPieces(pieces);
 		setInCheck(inCheck);
 	}
@@ -33,11 +32,11 @@ public abstract class Player extends ChessObject {
 		Main.mainBoard.setPosition(piece.getPosition(), piece);
 	}
 
-	public HashSet<Piece> getPieces() {
+	public ChessHashSet<Piece> getPieces() {
 		return pieces;
 	}
 
-	public void setPieces(HashSet<Piece> pieces) {
+	public void setPieces(ChessHashSet<Piece> pieces) {
 		this.pieces = pieces;
 	}
 

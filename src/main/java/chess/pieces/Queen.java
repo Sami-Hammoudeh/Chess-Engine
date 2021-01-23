@@ -1,8 +1,7 @@
 package chess.pieces;
 
-import java.util.LinkedList;
-
 import chess.board.Position;
+import chess.collections.ChessLinkedList;
 import chess.object.ChessObject;
 import chess.players.Color;
 
@@ -14,8 +13,8 @@ public class Queen extends Piece {
 	}
 
 	@Override
-	public LinkedList<Position> getLegalMoves() {
-		legalMoves = new LinkedList<Position>();
+	public ChessLinkedList<Position> getLegalMoves() {
+		legalMoves = new ChessLinkedList<Position>();
 		Piece tempRook = new Rook(getPosition(), getColor());
 		Piece tempBishop = new Bishop(getPosition(), getColor());
 		legalMoves.addAll(tempRook.getLegalMoves());

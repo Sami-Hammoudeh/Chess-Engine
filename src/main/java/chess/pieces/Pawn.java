@@ -1,8 +1,7 @@
 package chess.pieces;
 
-import java.util.LinkedList;
-
 import chess.board.Position;
+import chess.collections.ChessLinkedList;
 import chess.control.Main;
 import chess.object.ChessObject;
 import chess.players.Color;
@@ -14,8 +13,8 @@ public class Pawn extends Piece {
 		setWeight(1);
 	}
 
-	public LinkedList<Position> getLegalMoves() {
-		legalMoves = new LinkedList<Position>();
+	public ChessLinkedList<Position> getLegalMoves() {
+		legalMoves = new ChessLinkedList<Position>();
 		// White Piece
 		if (getColor() == Color.WHITE) {
 			if (getPosition().getRow() == 2) {

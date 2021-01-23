@@ -1,8 +1,7 @@
 package chess.pieces;
 
-import java.util.LinkedList;
-
 import chess.board.Position;
+import chess.collections.ChessLinkedList;
 import chess.control.Main;
 import chess.object.ChessObject;
 import chess.players.Color;
@@ -13,12 +12,12 @@ public abstract class Piece extends ChessObject {
 	private boolean black;
 	private Position position;
 	private Color color;
-	LinkedList<Position> legalMoves;
+	ChessLinkedList<Position> legalMoves;
 
 	public Piece(Position position, Color color) {
 		setPosition(position);
 		setColor(color);
-		legalMoves = new LinkedList<Position>();
+		legalMoves = new ChessLinkedList<Position>();
 	}
 
 	public boolean moveTo(Position position) {
@@ -82,6 +81,6 @@ public abstract class Piece extends ChessObject {
 		legalMoves.add(position);
 	}
 
-	public abstract LinkedList<Position> getLegalMoves();
+	public abstract ChessLinkedList<Position> getLegalMoves();
 
 }

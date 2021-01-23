@@ -1,8 +1,7 @@
 package chess.pieces;
 
-import java.util.LinkedList;
-
 import chess.board.Position;
+import chess.collections.ChessLinkedList;
 import chess.control.Main;
 import chess.object.ChessObject;
 import chess.players.Color;
@@ -15,8 +14,8 @@ public class Knight extends Piece {
 	}
 
 	@Override
-	public LinkedList<Position> getLegalMoves() {
-		legalMoves = new LinkedList<Position>();
+	public ChessLinkedList<Position> getLegalMoves() {
+		legalMoves = new ChessLinkedList<Position>();
 		// Columns
 		int[] c = { 1, 2, 2, 1, -1, -2, -2, -1 };
 		// Rows
