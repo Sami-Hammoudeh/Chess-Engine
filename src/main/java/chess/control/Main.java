@@ -11,6 +11,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		initialize();
+		System.out.println("White pieces: " + WHITE.getPieces().size());
+		System.out.println("Black pieces: " + BLACK.getPieces().size());
+
+		System.out.println("Black lagalMoves: " + BLACK.getLegalMoves().size());
+		System.out.println("White lagalMoves: " + WHITE.getLegalMoves().size());
+
+		System.out.println("White pieces: " + WHITE.getPieces().size());
+		System.out.println("Black pieces: " + BLACK.getPieces().size());
 	}
 
 	private static void initialize() {
