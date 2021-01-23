@@ -1,5 +1,7 @@
 package chess.players;
 
+import java.util.Iterator;
+
 import chess.board.Position;
 import chess.collections.ChessHashSet;
 import chess.control.Main;
@@ -65,6 +67,16 @@ public abstract class Player extends ChessObject {
 
 	public void setInCheck(boolean inCheck) {
 		this.inCheck = inCheck;
+	}
+
+	public Piece getPiece(Position position) {
+		Iterator<Piece> iterator = getPieces().iterator();
+		while (iterator.hasNext()) {
+			Piece piece = iterator.next();
+			if (piece.getPosition().equals(position))
+				return piece;
+		}
+		return null;
 	}
 
 	@Override
