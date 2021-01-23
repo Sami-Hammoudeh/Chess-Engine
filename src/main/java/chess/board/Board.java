@@ -124,9 +124,8 @@ public class Board extends ChessObject {
 		for (Piece[] arr : positions) {
 			int j = 0;
 			for (Piece piece : arr) {
-				if (!(piece.equals(getPositions()[i][j]))) {
+				if (piece != null)
 					board.getPositions()[i][j] = (Piece) piece.copy();
-				}
 				j++;
 			}
 			i++;

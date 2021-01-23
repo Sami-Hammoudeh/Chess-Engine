@@ -5,11 +5,17 @@ import chess.players.Black;
 import chess.players.White;
 
 public class Main {
-	public final static Board BOARD = new Board();
-	public final static White WHITE = new White();
-	public final static Black BLACK = new Black();
+	public static Board BOARD;
+	public static White WHITE;
+	public static Black BLACK;
 
 	public static void main(String[] args) {
-		
+		initialize();
+	}
+
+	private static void initialize() {
+		BOARD = new Board();
+		WHITE = new White();
+		BLACK = new Black();
 	}
 }

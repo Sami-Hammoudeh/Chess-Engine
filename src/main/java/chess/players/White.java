@@ -49,6 +49,7 @@ public class White extends Player {
 	public ChessObject copy() {
 		White white = new White();
 		white.setPieces((ChessHashSet<Piece>) getPieces().copy());
+		white.setColor(getColor());
 		return white;
 	}
 

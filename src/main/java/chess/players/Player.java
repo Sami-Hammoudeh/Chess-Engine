@@ -8,6 +8,7 @@ import chess.collections.ChessLinkedList;
 import chess.control.Main;
 import chess.error.Error;
 import chess.object.ChessObject;
+import chess.pieces.King;
 import chess.pieces.Piece;
 
 public abstract class Player extends ChessObject {
@@ -39,6 +40,9 @@ public abstract class Player extends ChessObject {
 	}
 
 	public Piece getKing() {
+		for (Piece piece : getPieces())
+			if (piece instanceof King)
+				return piece;
 		return null;
 	}
 

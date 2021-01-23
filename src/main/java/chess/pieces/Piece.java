@@ -96,6 +96,7 @@ public abstract class Piece extends ChessObject {
 
 	public void checkAndAddLegalMove(Position position) {
 		Board state = (Board) Main.BOARD.copy();
+		setColor(getColor());
 		Player player = (Player) getPlayer().copy();
 		Piece piece = player.getPiece(getPosition());
 		try {
